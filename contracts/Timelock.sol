@@ -11,27 +11,27 @@ contract Timelock {
     /**
      * @dev Адрес владельца контракта.
      */
-    address public owner; // Адрес владельца контракта
+    address public owner; 
 
     /**
      * @dev Минимальная задержка для отложенной транзакции.
      */
-    uint256 public constant MIN_DELAY = 10; // Минимальная задержка
+    uint256 public constant MIN_DELAY = 10; 
 
     /**
      * @dev Максимальная задержка для отложенной транзакции.
      */
-    uint256 public constant MAX_DELAY = 100; // Максимальная задержка
+    uint256 public constant MAX_DELAY = 100; 
 
     /**
      * @dev Срок действия отложенной транзакции.
      */
-    uint256 public constant EXPIRY_DELAY = 1000; // Срок действия
+    uint256 public constant EXPIRY_DELAY = 1000; 
 
     /**
      * @dev Отображение отложенных транзакций.
      */
-    mapping(bytes32 => bool) public queuedTxs; // Отображение отложенных транзакций
+    mapping(bytes32 => bool) public queuedTxs; 
 
     /**
      * @dev Событие, которое эмитируется при постановке транзакции в очередь.
@@ -67,7 +67,7 @@ contract Timelock {
         string func, 
         bytes data, 
         uint256 timestamp
-    ); // Событие выполнения
+    ); 
 
     /**
      * @dev Конструктор контракта.
@@ -80,7 +80,7 @@ contract Timelock {
      * @dev Модификатор, который проверяет, что вызывающий является владельцем.
      */
     modifier onlyOwner() {
-        require(msg.sender == owner, "not an owner!"); // Проверяем, является ли вызывающий владельцем
+        require(msg.sender == owner, "not an owner!"); 
         _;
     }
 
@@ -200,6 +200,7 @@ contract Runner {
      */
     address public lock; 
 
+    /**
      * @dev Сообщение, которое будет храниться в контракте.
      */
     string public message; 
