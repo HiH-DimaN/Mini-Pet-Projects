@@ -196,7 +196,7 @@ contract Timelock {
  */
 contract Runner {
     /**
-     * @dev Адрес контракта Timelick.
+     * @dev Адрес контракта Timelock.
      */
     address public lock; 
 
@@ -206,13 +206,13 @@ contract Runner {
     string public message; 
 
     /**
-     * @dev Отображение платежей, полученных от контракта Timelick.
+     * @dev Отображение платежей, полученных от контракта Timelock.
      */
     mapping(address => uint) public payments; 
 
     /**
      * @dev Конструктор контракта.
-     * @param _lock Адрес контракта Timelick.
+     * @param _lock Адрес контракта Timelock.
      */
     constructor(address _lock) {
         lock = _lock;        // Устанавливаем адрес контракта Timelock
@@ -242,7 +242,7 @@ contract Runner {
      * @param _msg Новое сообщение, которое будет передано в отложенной транзакции.
      * @return data Данные для отложенной транзакции.
      */
-    function prepareData(string calldata _msg) external view returns(bytes memory) {
+    function prepareData(string calldata _msg) external pure returns(bytes memory) {
         return abi.encode(_msg); // Кодируем сообщение в данные
     }
 
